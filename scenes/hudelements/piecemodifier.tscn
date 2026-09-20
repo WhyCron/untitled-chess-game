@@ -4,7 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_047uy"]
 resource_local_to_scene = true
-font_color = Color(1, 0.54155815, 0.39600667, 1)
+font_color = Color(1, 0.69396263, 0.5973563, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 

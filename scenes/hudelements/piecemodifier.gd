@@ -1,9 +1,9 @@
 extends Control
 
-# box width, BG colour, FG colour
+# box width, BG colour, FG colour, mod name
 const MODIFIERS: Array = [
 	[50, Color8(127,127,127), Color8(222,222,222), "Basic"], #Basic
-	[72, Color8(162,55,5), Color8(255,158,101), "Petrified"], #Petrified
+	[72, Color8(162,55,5), Color8(255,177,152), "Petrified"], #Petrified
 ]
 @export_enum("Basic", "Petrified") var mod_type: int = 0
 

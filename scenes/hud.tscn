@@ -93,10 +93,10 @@ texture = ExtResource("4_5pdws")
 
 [node name="HP" type="RichTextLabel" parent="PlayerPieces/Portrait" unique_id=134816939]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 106.0
-offset_right = 100.0
-offset_bottom = 129.0
+offset_left = 35.0
+offset_top = 99.0
+offset_right = 95.0
+offset_bottom = 122.0
 bbcode_enabled = true
 text = "[outline_size=2]40/[font_size=13][color=808080]40[/color][/font_size][/outline_size]"
 scroll_active = false
@@ -210,13 +210,13 @@ text = "3"
 label_settings = ExtResource("9_apjy4")
 horizontal_alignment = 2
 
-[node name="Info" type="Control" parent="PlayerPieces" unique_id=1862973138]
+[node name="Squad" type="Control" parent="PlayerPieces" unique_id=1862973138]
 anchors_preset = 0
 offset_left = 96.0
 offset_right = 175.0
 offset_bottom = 45.0
 
-[node name="Label" type="Label" parent="PlayerPieces/Info" unique_id=1958299622]
+[node name="Label" type="Label" parent="PlayerPieces/Squad" unique_id=1958299622]
 layout_mode = 0
 offset_right = 80.0
 offset_bottom = 23.0
@@ -224,7 +224,7 @@ text = "Squad:"
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Current" type="Label" parent="PlayerPieces/Info" unique_id=937210225]
+[node name="Current" type="Label" parent="PlayerPieces/Squad" unique_id=937210225]
 layout_mode = 0
 offset_top = 23.0
 offset_right = 42.0
@@ -234,7 +234,7 @@ label_settings = ExtResource("10_5n1hp")
 horizontal_alignment = 2
 metadata/_edit_lock_ = true
 
-[node name="TotalMax" type="Label" parent="PlayerPieces/Info" unique_id=1790918950]
+[node name="TotalMax" type="Label" parent="PlayerPieces/Squad" unique_id=1790918950]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 28.0
@@ -244,13 +244,13 @@ text = "20 (32)"
 label_settings = ExtResource("11_eld54")
 metadata/_edit_lock_ = true
 
-[node name="Info2" type="Control" parent="PlayerPieces" unique_id=1088928828]
+[node name="Active" type="Control" parent="PlayerPieces" unique_id=1088928828]
 anchors_preset = 0
 offset_left = 189.0
 offset_right = 268.0
 offset_bottom = 45.0
 
-[node name="Label" type="Label" parent="PlayerPieces/Info2" unique_id=8758978]
+[node name="Label" type="Label" parent="PlayerPieces/Active" unique_id=8758978]
 layout_mode = 0
 offset_right = 80.0
 offset_bottom = 23.0
@@ -258,7 +258,7 @@ text = "Active:"
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Current" type="Label" parent="PlayerPieces/Info2" unique_id=194553722]
+[node name="Current" type="Label" parent="PlayerPieces/Active" unique_id=194553722]
 layout_mode = 0
 offset_top = 23.0
 offset_right = 42.0
@@ -268,7 +268,7 @@ label_settings = ExtResource("10_5n1hp")
 horizontal_alignment = 2
 metadata/_edit_lock_ = true
 
-[node name="Total" type="Label" parent="PlayerPieces/Info2" unique_id=1775312303]
+[node name="Total" type="Label" parent="PlayerPieces/Active" unique_id=1775312303]
 layout_mode = 0
 offset_left = 42.0
 offset_top = 28.0
@@ -278,7 +278,7 @@ text = "20"
 label_settings = ExtResource("11_eld54")
 metadata/_edit_lock_ = true
 
-[node name="Label2" type="Label" parent="PlayerPieces" unique_id=2012675476]
+[node name="LeftRot" type="Label" parent="PlayerPieces" unique_id=2012675476]
 modulate = Color(0.5019608, 0.5019608, 0.5019608, 1)
 layout_mode = 0
 offset_left = 103.0
@@ -290,7 +290,7 @@ offset_transform_enabled = true
 offset_transform_scale = Vector2(0.75, 2)
 text = "<"
 
-[node name="Label3" type="Label" parent="PlayerPieces" unique_id=1026199706]
+[node name="RightRot" type="Label" parent="PlayerPieces" unique_id=1026199706]
 layout_mode = 0
 offset_left = 242.0
 offset_top = 82.0
