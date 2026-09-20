@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://kb5kwsc54aof"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_047uy"]
+font_color = Color(0.8165353, 0.44593734, 0.16767204, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PieceMod" type="Control" unique_id=1752485861]
+custom_minimum_size = Vector2(24, 24)
+custom_maximum_size = Vector2(-1, 24)
+propagate_maximum_size = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 72.0
+offset_bottom = 24.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=456863573]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.82045346, 0.39643046, 0.23806748, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1732068154]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Petrified"
+label_settings = SubResource("LabelSettings_047uy")
+horizontal_alignment = 1

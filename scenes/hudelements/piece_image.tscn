@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b53v2v6ftvo2p"]
+
+[ext_resource type="Texture2D" uid="uid://vnr27e5enlpj" path="res://sprites/hud/pieceimg/piecebgPLACEHOLDER.png" id="1_c4q00"]
+[ext_resource type="Texture2D" uid="uid://6pp64mvg5fjs" path="res://sprites/hud/pieceimg/pawnPLACEHOLDER.png" id="2_2137u"]
+
+[node name="PieceImage" type="Control" unique_id=1093344815]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=345209635]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_c4q00")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=648655584]
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_2137u")

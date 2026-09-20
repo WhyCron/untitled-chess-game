@@ -1,0 +1,309 @@
+[gd_scene format=3 uid="uid://co1pkek57jqx1"]
+
+[ext_resource type="Script" uid="uid://bjwa8aklog0pv" path="res://scenes/hud.gd" id="1_5pdws"]
+[ext_resource type="Texture2D" uid="uid://cfxtxkcp2337h" path="res://sprites/hud/healthbar/under.png" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://kiqm4v33c0d0" path="res://sprites/hud/healthbar/over.png" id="2_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://dg11gc0pmmuda" path="res://sprites/hud/playerimg/placeholdermii.png" id="3_047uy"]
+[ext_resource type="Texture2D" uid="uid://btdpc6ur6jiny" path="res://sprites/hud/playerimg/border.png" id="4_5pdws"]
+[ext_resource type="PackedScene" uid="uid://kb5kwsc54aof" path="res://scenes/hudelements/piecemodifier.tscn" id="5_hd3ao"]
+[ext_resource type="PackedScene" uid="uid://b53v2v6ftvo2p" path="res://scenes/hudelements/piece_image.tscn" id="6_0i1j5"]
+
+[sub_resource type="Gradient" id="Gradient_6fi6k"]
+colors = PackedColorArray(0.07961973, 0.2978483, 0, 1, 0.33199987, 0.83, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oo0fn"]
+gradient = SubResource("Gradient_6fi6k")
+width = 96
+height = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_uo2fv"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mphia"]
+font_size = 12
+font_color = Color(0.65012825, 0.6501283, 0.65012825, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0xcf4"]
+font_size = 12
+font_color = Color(0.65012825, 0.6501283, 0.65012825, 1)
+
+[node name="HUD" type="Control" unique_id=548360768]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5pdws")
+
+[node name="PlayerPieces" type="ReferenceRect" parent="." unique_id=1468666280]
+custom_minimum_size = Vector2(320, 128)
+custom_maximum_size = Vector2(320, 128)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -152.0
+offset_right = 384.0
+offset_bottom = -24.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+border_color = Color(0.5818667, 0.55013424, 0, 1)
+
+[node name="Portrait" type="ReferenceRect" parent="PlayerPieces" unique_id=1045862988]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 120.0
+
+[node name="HPBar" type="TextureProgressBar" parent="PlayerPieces/Portrait" unique_id=517025721]
+custom_minimum_size = Vector2(96, 24)
+custom_maximum_size = Vector2(-1, 24)
+layout_mode = 0
+offset_top = 96.0
+offset_right = 96.0
+offset_bottom = 120.0
+value = 100.0
+allow_greater = true
+allow_lesser = true
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_under = ExtResource("1_oo0fn")
+texture_over = ExtResource("2_5ysmq")
+texture_progress = SubResource("GradientTexture2D_oo0fn")
+tint_over = Color(0.79199904, 0.79199916, 0.7919989, 1)
+
+[node name="HP" type="Label" parent="PlayerPieces/Portrait" unique_id=1244825394]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 106.0
+offset_right = 100.0
+offset_bottom = 129.0
+text = "40/40"
+label_settings = SubResource("LabelSettings_uo2fv")
+
+[node name="ColorRect" type="ColorRect" parent="PlayerPieces/Portrait" unique_id=515216369]
+custom_minimum_size = Vector2(96, 96)
+custom_maximum_size = Vector2(96, 96)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.69965345, 0.69965345, 0.69965345, 1)
+
+[node name="TextureRect" type="TextureRect" parent="PlayerPieces/Portrait" unique_id=954439999]
+custom_minimum_size = Vector2(96, 96)
+custom_maximum_size = Vector2(96, 96)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_047uy")
+
+[node name="TextureRect2" type="TextureRect" parent="PlayerPieces/Portrait" unique_id=289115729]
+custom_minimum_size = Vector2(96, 96)
+custom_maximum_size = Vector2(96, 96)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_5pdws")
+
+[node name="Label" type="Label" parent="PlayerPieces" unique_id=182089015]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 58.0
+offset_right = 274.0
+offset_bottom = 82.0
+text = "PIECE NAME"
+horizontal_alignment = 2
+
+[node name="PieceMod" parent="PlayerPieces" unique_id=1752485861 instance=ExtResource("5_hd3ao")]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 58.0
+offset_right = 174.0
+offset_bottom = 82.0
+
+[node name="ColorRect" type="ColorRect" parent="PlayerPieces" unique_id=2008833993]
+custom_minimum_size = Vector2(32, 8)
+custom_maximum_size = Vector2(32, 8)
+layout_mode = 0
+offset_left = 127.0
+offset_top = 116.0
+offset_right = 159.0
+offset_bottom = 124.0
+
+[node name="PieceImage" parent="PlayerPieces" unique_id=1093344815 instance=ExtResource("6_0i1j5")]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 89.0
+offset_right = 159.0
+offset_bottom = 121.0
+
+[node name="Count" type="Label" parent="PlayerPieces/PieceImage" unique_id=2066053140]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -11.0
+offset_right = 29.0
+offset_bottom = 12.0
+text = "2"
+label_settings = SubResource("LabelSettings_uo2fv")
+horizontal_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Max" type="Label" parent="PlayerPieces/PieceImage" unique_id=566520239]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 40.0
+offset_bottom = 17.0
+text = "6"
+label_settings = SubResource("LabelSettings_mphia")
+metadata/_edit_lock_ = true
+
+[node name="PieceImage2" parent="PlayerPieces" unique_id=655352495 instance=ExtResource("6_0i1j5")]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 89.0
+offset_right = 199.0
+offset_bottom = 121.0
+
+[node name="Count" type="Label" parent="PlayerPieces/PieceImage2" unique_id=91379828]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -11.0
+offset_right = 29.0
+offset_bottom = 12.0
+text = "1"
+label_settings = SubResource("LabelSettings_uo2fv")
+horizontal_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Max" type="Label" parent="PlayerPieces/PieceImage2" unique_id=620595538]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 40.0
+offset_bottom = 17.0
+text = "2"
+label_settings = SubResource("LabelSettings_mphia")
+metadata/_edit_lock_ = true
+
+[node name="PieceImage3" parent="PlayerPieces" unique_id=533262846 instance=ExtResource("6_0i1j5")]
+modulate = Color(0.50140655, 0.5014065, 0.5014065, 1)
+layout_mode = 0
+offset_left = 206.0
+offset_top = 89.0
+offset_right = 238.0
+offset_bottom = 121.0
+
+[node name="Count" type="Label" parent="PlayerPieces/PieceImage3" unique_id=565147439]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -11.0
+offset_right = 29.0
+offset_bottom = 12.0
+text = "0"
+label_settings = SubResource("LabelSettings_uo2fv")
+horizontal_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Max" type="Label" parent="PlayerPieces/PieceImage3" unique_id=2060348588]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 40.0
+offset_bottom = 17.0
+text = "3"
+label_settings = SubResource("LabelSettings_mphia")
+metadata/_edit_lock_ = true
+
+[node name="Info" type="Control" parent="PlayerPieces" unique_id=1862973138]
+anchors_preset = 0
+offset_left = 96.0
+offset_right = 175.0
+offset_bottom = 45.0
+
+[node name="Label" type="Label" parent="PlayerPieces/Info" unique_id=1958299622]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 23.0
+text = "Squad:"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Current" type="Label" parent="PlayerPieces/Info" unique_id=937210225]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 42.0
+offset_bottom = 46.0
+text = "3/"
+horizontal_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="TotalMax" type="Label" parent="PlayerPieces/Info" unique_id=1790918950]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 28.0
+offset_right = 71.0
+offset_bottom = 45.0
+text = "20 (32)"
+label_settings = SubResource("LabelSettings_0xcf4")
+metadata/_edit_lock_ = true
+
+[node name="Info2" type="Control" parent="PlayerPieces" unique_id=1088928828]
+anchors_preset = 0
+offset_left = 189.0
+offset_right = 268.0
+offset_bottom = 45.0
+
+[node name="Label" type="Label" parent="PlayerPieces/Info2" unique_id=8758978]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 23.0
+text = "Active:"
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Current" type="Label" parent="PlayerPieces/Info2" unique_id=194553722]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 42.0
+offset_bottom = 46.0
+text = "11/"
+horizontal_alignment = 2
+metadata/_edit_lock_ = true
+
+[node name="Total" type="Label" parent="PlayerPieces/Info2" unique_id=1775312303]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 28.0
+offset_right = 71.0
+offset_bottom = 45.0
+text = "20"
+label_settings = SubResource("LabelSettings_0xcf4")
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="PlayerPieces" unique_id=2012675476]
+modulate = Color(0.5019608, 0.5019608, 0.5019608, 1)
+layout_mode = 0
+offset_left = 103.0
+offset_top = 82.0
+offset_right = 113.0
+offset_bottom = 105.0
+scale = Vector2(2, 2)
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.75, 2)
+text = "<"
+
+[node name="Label3" type="Label" parent="PlayerPieces" unique_id=1026199706]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 82.0
+offset_right = 252.0
+offset_bottom = 105.0
+scale = Vector2(2, 2)
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.75, 2)
+text = ">"
