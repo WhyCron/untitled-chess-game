@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://btdpc6ur6jiny" path="res://sprites/hud/playerimg/border.png" id="4_5pdws"]
 [ext_resource type="PackedScene" uid="uid://kb5kwsc54aof" path="res://scenes/hudelements/piecemodifier.tscn" id="5_hd3ao"]
 [ext_resource type="PackedScene" uid="uid://b53v2v6ftvo2p" path="res://scenes/hudelements/piece_image.tscn" id="6_0i1j5"]
+[ext_resource type="LabelSettings" uid="uid://bsm7wsegwh2gq" path="res://res/labels/standard_outline.tres" id="8_0m4u7"]
+[ext_resource type="LabelSettings" uid="uid://ccrno3wi7dwql" path="res://res/labels/lesser_outline.tres" id="9_apjy4"]
+[ext_resource type="LabelSettings" uid="uid://bbovlxkcuispy" path="res://res/labels/standard.tres" id="10_5n1hp"]
+[ext_resource type="LabelSettings" uid="uid://bffkvhfqth5xr" path="res://res/labels/lesser.tres" id="11_eld54"]
 
 [sub_resource type="Gradient" id="Gradient_6fi6k"]
 colors = PackedColorArray(0.07961973, 0.2978483, 0, 1, 0.33199987, 0.83, 0, 1)
@@ -15,20 +19,6 @@ colors = PackedColorArray(0.07961973, 0.2978483, 0, 1, 0.33199987, 0.83, 0, 1)
 gradient = SubResource("Gradient_6fi6k")
 width = 96
 height = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_uo2fv"]
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_mphia"]
-font_size = 12
-font_color = Color(0.65012825, 0.6501283, 0.65012825, 1)
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_0xcf4"]
-font_size = 12
-font_color = Color(0.65012825, 0.6501283, 0.65012825, 1)
 
 [node name="HUD" type="Control" unique_id=548360768]
 layout_mode = 3
@@ -67,8 +57,6 @@ offset_top = 96.0
 offset_right = 96.0
 offset_bottom = 120.0
 value = 100.0
-allow_greater = true
-allow_lesser = true
 nine_patch_stretch = true
 stretch_margin_left = 1
 stretch_margin_top = 1
@@ -79,16 +67,7 @@ texture_over = ExtResource("2_5ysmq")
 texture_progress = SubResource("GradientTexture2D_oo0fn")
 tint_over = Color(0.79199904, 0.79199916, 0.7919989, 1)
 
-[node name="HP" type="Label" parent="PlayerPieces/Portrait" unique_id=1244825394]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 106.0
-offset_right = 100.0
-offset_bottom = 129.0
-text = "40/40"
-label_settings = SubResource("LabelSettings_uo2fv")
-
-[node name="ColorRect" type="ColorRect" parent="PlayerPieces/Portrait" unique_id=515216369]
+[node name="PortraitBackground" type="ColorRect" parent="PlayerPieces/Portrait" unique_id=515216369]
 custom_minimum_size = Vector2(96, 96)
 custom_maximum_size = Vector2(96, 96)
 layout_mode = 0
@@ -96,7 +75,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.69965345, 0.69965345, 0.69965345, 1)
 
-[node name="TextureRect" type="TextureRect" parent="PlayerPieces/Portrait" unique_id=954439999]
+[node name="PlayerPortrait" type="TextureRect" parent="PlayerPieces/Portrait" unique_id=954439999]
 custom_minimum_size = Vector2(96, 96)
 custom_maximum_size = Vector2(96, 96)
 layout_mode = 0
@@ -104,7 +83,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_047uy")
 
-[node name="TextureRect2" type="TextureRect" parent="PlayerPieces/Portrait" unique_id=289115729]
+[node name="PortraitBorder" type="TextureRect" parent="PlayerPieces/Portrait" unique_id=289115729]
 custom_minimum_size = Vector2(96, 96)
 custom_maximum_size = Vector2(96, 96)
 layout_mode = 0
@@ -112,21 +91,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_5pdws")
 
-[node name="Label" type="Label" parent="PlayerPieces" unique_id=182089015]
+[node name="HP" type="RichTextLabel" parent="PlayerPieces/Portrait" unique_id=134816939]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 58.0
-offset_right = 274.0
-offset_bottom = 82.0
-text = "PIECE NAME"
+offset_left = 40.0
+offset_top = 106.0
+offset_right = 100.0
+offset_bottom = 129.0
+bbcode_enabled = true
+text = "[outline_size=2]40/[font_size=13][color=808080]40[/color][/font_size][/outline_size]"
+scroll_active = false
 horizontal_alignment = 2
-
-[node name="PieceMod" parent="PlayerPieces" unique_id=1752485861 instance=ExtResource("5_hd3ao")]
-layout_mode = 0
-offset_left = 102.0
-offset_top = 58.0
-offset_right = 174.0
-offset_bottom = 82.0
 
 [node name="ColorRect" type="ColorRect" parent="PlayerPieces" unique_id=2008833993]
 custom_minimum_size = Vector2(32, 8)
@@ -137,6 +111,23 @@ offset_top = 116.0
 offset_right = 159.0
 offset_bottom = 124.0
 
+[node name="PieceInfo" type="HBoxContainer" parent="PlayerPieces" unique_id=2075069436]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 58.0
+offset_right = 319.0
+offset_bottom = 82.0
+theme_override_constants/separation = 6
+
+[node name="PieceMod" parent="PlayerPieces/PieceInfo" unique_id=1752485861 instance=ExtResource("5_hd3ao")]
+layout_mode = 2
+mod_type = 1
+
+[node name="Label" type="Label" parent="PlayerPieces/PieceInfo" unique_id=182089015]
+layout_mode = 2
+text = "PIECE NAME"
+horizontal_alignment = 2
+
 [node name="PieceImage" parent="PlayerPieces" unique_id=1093344815 instance=ExtResource("6_0i1j5")]
 layout_mode = 0
 offset_left = 127.0
@@ -146,23 +137,23 @@ offset_bottom = 121.0
 
 [node name="Count" type="Label" parent="PlayerPieces/PieceImage" unique_id=2066053140]
 layout_mode = 0
-offset_left = 3.0
+offset_left = 7.0
 offset_top = -11.0
-offset_right = 29.0
+offset_right = 33.0
 offset_bottom = 12.0
 text = "2"
-label_settings = SubResource("LabelSettings_uo2fv")
+label_settings = ExtResource("8_0m4u7")
 horizontal_alignment = 2
-metadata/_edit_lock_ = true
 
 [node name="Max" type="Label" parent="PlayerPieces/PieceImage" unique_id=566520239]
 layout_mode = 0
-offset_left = 25.0
-offset_right = 40.0
-offset_bottom = 17.0
+offset_left = 18.0
+offset_top = 5.0
+offset_right = 33.0
+offset_bottom = 22.0
 text = "6"
-label_settings = SubResource("LabelSettings_mphia")
-metadata/_edit_lock_ = true
+label_settings = ExtResource("9_apjy4")
+horizontal_alignment = 2
 
 [node name="PieceImage2" parent="PlayerPieces" unique_id=655352495 instance=ExtResource("6_0i1j5")]
 layout_mode = 0
@@ -171,53 +162,53 @@ offset_top = 89.0
 offset_right = 199.0
 offset_bottom = 121.0
 
-[node name="Count" type="Label" parent="PlayerPieces/PieceImage2" unique_id=91379828]
+[node name="Count" type="Label" parent="PlayerPieces/PieceImage2" unique_id=679303348]
 layout_mode = 0
-offset_left = 3.0
+offset_left = 7.0
 offset_top = -11.0
-offset_right = 29.0
+offset_right = 33.0
 offset_bottom = 12.0
 text = "1"
-label_settings = SubResource("LabelSettings_uo2fv")
+label_settings = ExtResource("8_0m4u7")
 horizontal_alignment = 2
-metadata/_edit_lock_ = true
 
-[node name="Max" type="Label" parent="PlayerPieces/PieceImage2" unique_id=620595538]
+[node name="Max" type="Label" parent="PlayerPieces/PieceImage2" unique_id=1723296011]
 layout_mode = 0
-offset_left = 25.0
-offset_right = 40.0
-offset_bottom = 17.0
+offset_left = 18.0
+offset_top = 5.0
+offset_right = 33.0
+offset_bottom = 22.0
 text = "2"
-label_settings = SubResource("LabelSettings_mphia")
-metadata/_edit_lock_ = true
+label_settings = ExtResource("9_apjy4")
+horizontal_alignment = 2
 
 [node name="PieceImage3" parent="PlayerPieces" unique_id=533262846 instance=ExtResource("6_0i1j5")]
-modulate = Color(0.50140655, 0.5014065, 0.5014065, 1)
 layout_mode = 0
 offset_left = 206.0
 offset_top = 89.0
 offset_right = 238.0
 offset_bottom = 121.0
+enabled = false
 
-[node name="Count" type="Label" parent="PlayerPieces/PieceImage3" unique_id=565147439]
+[node name="Count" type="Label" parent="PlayerPieces/PieceImage3" unique_id=1898158040]
 layout_mode = 0
-offset_left = 3.0
+offset_left = 7.0
 offset_top = -11.0
-offset_right = 29.0
+offset_right = 33.0
 offset_bottom = 12.0
 text = "0"
-label_settings = SubResource("LabelSettings_uo2fv")
+label_settings = ExtResource("8_0m4u7")
 horizontal_alignment = 2
-metadata/_edit_lock_ = true
 
-[node name="Max" type="Label" parent="PlayerPieces/PieceImage3" unique_id=2060348588]
+[node name="Max" type="Label" parent="PlayerPieces/PieceImage3" unique_id=1476317864]
 layout_mode = 0
-offset_left = 25.0
-offset_right = 40.0
-offset_bottom = 17.0
+offset_left = 18.0
+offset_top = 5.0
+offset_right = 33.0
+offset_bottom = 22.0
 text = "3"
-label_settings = SubResource("LabelSettings_mphia")
-metadata/_edit_lock_ = true
+label_settings = ExtResource("9_apjy4")
+horizontal_alignment = 2
 
 [node name="Info" type="Control" parent="PlayerPieces" unique_id=1862973138]
 anchors_preset = 0
@@ -239,6 +230,7 @@ offset_top = 23.0
 offset_right = 42.0
 offset_bottom = 46.0
 text = "3/"
+label_settings = ExtResource("10_5n1hp")
 horizontal_alignment = 2
 metadata/_edit_lock_ = true
 
@@ -249,7 +241,7 @@ offset_top = 28.0
 offset_right = 71.0
 offset_bottom = 45.0
 text = "20 (32)"
-label_settings = SubResource("LabelSettings_0xcf4")
+label_settings = ExtResource("11_eld54")
 metadata/_edit_lock_ = true
 
 [node name="Info2" type="Control" parent="PlayerPieces" unique_id=1088928828]
@@ -272,6 +264,7 @@ offset_top = 23.0
 offset_right = 42.0
 offset_bottom = 46.0
 text = "11/"
+label_settings = ExtResource("10_5n1hp")
 horizontal_alignment = 2
 metadata/_edit_lock_ = true
 
@@ -282,7 +275,7 @@ offset_top = 28.0
 offset_right = 71.0
 offset_bottom = 45.0
 text = "20"
-label_settings = SubResource("LabelSettings_0xcf4")
+label_settings = ExtResource("11_eld54")
 metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="PlayerPieces" unique_id=2012675476]

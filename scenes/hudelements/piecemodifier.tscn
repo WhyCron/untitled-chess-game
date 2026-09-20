@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://kb5kwsc54aof"]
 
+[ext_resource type="Script" uid="uid://16b64qkwgdsp" path="res://scenes/hudelements/piecemodifier.gd" id="1_cnfl7"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_047uy"]
-font_color = Color(0.8165353, 0.44593734, 0.16767204, 1)
+resource_local_to_scene = true
+font_color = Color(1, 0.54155815, 0.39600667, 1)
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
@@ -11,25 +14,26 @@ custom_maximum_size = Vector2(-1, 24)
 propagate_maximum_size = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 72.0
+offset_right = 50.0
 offset_bottom = 24.0
+script = ExtResource("1_cnfl7")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=456863573]
+[node name="BG" type="ColorRect" parent="." unique_id=456863573]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.82045346, 0.39643046, 0.23806748, 1)
+color = Color(0.63718903, 0.21405414, 0.02031108, 1)
 
-[node name="Label" type="Label" parent="." unique_id=1732068154]
+[node name="Text" type="Label" parent="." unique_id=1732068154]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Petrified"
+text = "Basic"
 label_settings = SubResource("LabelSettings_047uy")
 horizontal_alignment = 1
