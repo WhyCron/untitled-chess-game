@@ -4,8 +4,9 @@ extends Control
 const MODIFIERS: Array = [
 	[50, Color8(127,127,127), Color8(222,222,222), "Basic"], #Basic
 	[72, Color8(162,55,5), Color8(255,177,152), "Petrified"], #Petrified
+	[50, Color8(255,255,255), Color8(0,0,0), "Paper"] #Paper
 ]
-@export_enum("Basic", "Petrified") var mod_type: int = 0
+@export_enum("Basic", "Petrified", "Paper", "Reinforced") var mod_type: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

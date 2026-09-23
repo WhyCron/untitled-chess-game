@@ -121,7 +121,7 @@ theme_override_constants/separation = 6
 
 [node name="PieceMod" parent="PlayerPieces/PieceInfo" unique_id=1752485861 instance=ExtResource("5_hd3ao")]
 layout_mode = 2
-mod_type = 1
+mod_type = 2
 
 [node name="Label" type="Label" parent="PlayerPieces/PieceInfo" unique_id=182089015]
 layout_mode = 2
